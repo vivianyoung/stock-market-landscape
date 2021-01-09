@@ -2,9 +2,10 @@
   "name": "stocklandscape",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "npm start"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js"
   },
   "author": "Vivian Young",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "hbs": "^4.1.1",
+    "nodemon": "^2.0.7",
     "path": "^0.12.7"
   }
 }
