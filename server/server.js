@@ -3,6 +3,9 @@ const hbs = require('hbs');
 const path = require('path');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+require('dotenv').config();
+
+API_KEY = process.env.STOCK_API_KEY;
 
 // set up port
 const port = process.env.PORT || 3000;
@@ -20,6 +23,8 @@ app.engine('hbs', exphbs({
   defaultLayout:false}));
 app.set('view engine', 'hbs');
 
+app.engine('html', require('ejs').renderFile);
+
 // middleware
 app.use(express.static(__dirname + '../public'));
 
@@ -27,5 +32,5 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home', {key: API_KEY});
 })

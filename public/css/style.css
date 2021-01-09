@@ -7,8 +7,80 @@ body, html {
   outline: 0;
   overflow: hidden;
   background-color: black;
+
+  font-family: 'Andale Mono', sans-serif;
+  font-size: 12px;
 }
 
 #canvas {
   width: 100%;
+}
+
+#menu-div {
+  width: 190px;
+  min-height:200px;
+  background-color: #0322A6;
+  height: auto;
+  padding: 15px 20px;
+}
+
+#search-div {
+  width: 100%;
+  height: auto;
+  display:flex;
+  align-items: center;
+  justify-content:flex-end;
+}
+
+#search-input {
+  width: 150px;
+  height: 20px;
+  padding: 10px;
+  text-transform: uppercase;
+  text-align: right;
+  font-family:inherit;
+  font-size: inherit;
+  background-color: white;
+  border: none;
+  outline: none;
+}
+
+#search-button {
+  height: 20px;
+  width: 20px;
+  background-color: Transparent;
+  background-image: url('/images/search_icon_white.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  outline: none;
+  margin-left: 20px;
+}
+
+#search-button:hover {
+  background-image: url('/images/search_icon.png');
+}
+
+#stocks-div {
+  width: 100%;
+  height: auto;
+  text-transform: uppercase;
+  text-align: right;
+  font-family: inherit;
+  font-size: inherit;
+  color: white;
+}
+
+#message {
+  margin-left: -50px;
+  color: white;
+  background-color: black;
+  border:none;
+  outline:none;
+  padding: 10px 15px;
+}
+
+.hidden {
+  display: none;
 }
