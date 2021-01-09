@@ -13,9 +13,9 @@ async function setup() {
 
   // initialize background
   // choose a random base color
-  let r = int(random(50,255));
-  let g = int(random(50,255));
-  let b = int(random(50,255));
+  let r = int(random(150,255));
+  let g = int(random(0,150));
+  let b = int(random(80,255));
 
   bgCol1 = color(r,g,b);
 
