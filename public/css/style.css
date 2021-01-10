@@ -73,6 +73,11 @@ body, html {
   color: white;
 }
 
+/* .stock-name:hover {
+  color: red;
+  cursor: pointer;
+} */
+
 #message {
   margin-left: -50px;
   color: white;

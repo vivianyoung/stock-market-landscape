@@ -10,6 +10,8 @@ let bgCol;
 let r,g,b;
 
 let sunColor = null;
+let sunX, sunY;
+let sunR = 120;
 
 let errorMsg = 'error';
 let loadingMsg = 'loading ...';
@@ -73,6 +75,10 @@ async function setup() {
     stockObj.display();
   }
 
+  // set sun variables
+  sunX = screenWidth * 0.8;
+  sunY = screenHeight * 0.2;
+
   // draw sun if there are stock shapes
   if (Object.keys(data).length > 0) {
     drawSun();
@@ -83,11 +89,28 @@ async function setup() {
   // when the user searches for a new stock
   searchButton.mousePressed(getData)
   searchInput.changed(getData);
+
+  console.log(data);
+  console.log(dataJSON);
 }
 
 function keyPressed() {
-  // clear data and restart when user presses the spacebar
-  if (keyCode == 32) {
-    reset();
+
+  switch (keyCode) {
+    // clear data and restart when user presses the spacebar
+    case 32:
+      reset();
+      break;
+    // remove last stock when user presses the '-' key
+    case 189:
+      if (stocks.length > 0) {
+        let removedStock = stocks.pop();
+        delete data[removedStock];
+        delete dataJSON[removedStock];
+        ticker = '';
+        setup();
+      }
+      break;
   }
+
 }

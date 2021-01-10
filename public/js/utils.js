@@ -77,7 +77,6 @@ async function getData() {
       messageElement.html(loadingMsg);
 
       currStockColor = rgbColor;
-      console.log(parseColor(currStockColor)['string']);
 
       // add shape on API call
       function gotData() {
@@ -100,13 +99,10 @@ async function getData() {
 function drawSun() {
   // let fillColor = color(212,235,110);
   let fillColor = sunColor;
-  let r = 100;
-  let x = screenWidth * 0.8;
-  let y = screenHeight * 0.2;
 
   noStroke();
   fill(fillColor);
-  ellipse(x,y,r,r);
+  ellipse(sunX,sunY,sunR,sunR);
 }
 
 function deleteAllMenus() {
