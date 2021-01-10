@@ -129,7 +129,7 @@ function deleteAllMessages() {
 
 function displayInstructions() {
   let boxW = 250;
-  let boxX = screenWidth - 50 - boxW;
+  let boxX = screenWidth - 70 - boxW;
 
   instructionsDiv = createElement('div').id('instructions-div');
   instructionsDiv.position(boxX, 30);
