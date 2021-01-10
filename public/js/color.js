@@ -1,17 +1,46 @@
 // constants for color API
 const COLOR_API_URL = 'https://www.thecolorapi.com/';
 
+function parseColor(color) {
+  let data = {};
+
+  let colorString = color.toString();
+  let regex = /rgba\((\d+),(\d+),(\d+),(\d+)\)$/gm;
+  let match = regex.exec(colorString);
+
+  let red = match[1];
+  let green = match[2];
+  let blue = match[3];
+
+  data['string'] = `${red}, ${green}, ${blue}`;
+  data['int array'] = [int(red), int(green), int(blue)]
+
+  return data;
+}
+
 // gets analogic color rgb given a rgb color string
-async function getAnalogicColor(rgbString) {
+async function getColor(rgbString, colorMode) {
+  let count = 5;
   let resultRGB;
-  let url = COLOR_API_URL + `scheme?rgb=${rgbString}&mode=analogic&count=2&format=json`
+  let chosenColor;
+
+  let url = COLOR_API_URL + `scheme?rgb=${rgbString}&mode=${colorMode}&count=${count}&format=json`
 
   await axios.get(url)
     .then(response => {
       let colors = response['data']['colors'];
-      let r = colors[1]['rgb']['r'];
-      let g = colors[1]['rgb']['g'];
-      let b = colors[1]['rgb']['b'];
+
+      switch (colorMode) {
+        case 'monochrome-dark':
+          chosenColor = colors[1];
+          break;
+        default:
+          chosenColor = random(colors);
+      }
+
+      let r = chosenColor['rgb']['r'];
+      let g = chosenColor['rgb']['g'];
+      let b = chosenColor['rgb']['b'];
       resultRGB = color(r,g,b);
     })
     .catch(error => {

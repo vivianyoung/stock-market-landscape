@@ -1,5 +1,5 @@
-function Stock(data, dataJSON, colorArray) {
-  this.fillColor = color(colorArray[0], colorArray[1], colorArray[2]);
+function Stock(data, dataJSON, color, padding) {
+  this.padding = padding;
 
   this.display = function() {
     // startup display
@@ -9,11 +9,10 @@ function Stock(data, dataJSON, colorArray) {
   }
 
   this.shape = function() {
-    let bottomPadding = 0.1;
     let count = 21;
-    
+
     // begin shape
-    fill(this.fillColor);
+    fill(color);
     noStroke();
     beginShape();
     vertex(0, innerHeight);
@@ -23,7 +22,7 @@ function Stock(data, dataJSON, colorArray) {
       let x_coor = innerWidth * i;
 
       // mapping price to pixels
-      high = map(high, data.priceRange[0], data.priceRange[1], innerHeight, innerHeight * bottomPadding);
+      high = map(high, data.priceRange[0], data.priceRange[1], 0, innerHeight * this.padding);
       vertex(floor(x_coor), high);
 
       count--;
