@@ -14,6 +14,7 @@ function reset() {
   menuDiv.remove();
   searchDiv.remove();
   messageElement.remove();
+  instructionsDiv.remove();
 
   setup();
 }
@@ -86,6 +87,7 @@ async function getData() {
 
           menuDiv.remove();
           messageElement.remove();
+          instructionsDiv.remove();
 
           setup();
         } catch (err) {
@@ -123,4 +125,17 @@ function deleteAllMessages() {
       messages.item(i).remove();
     }
   }
+}
+
+function displayInstructions() {
+  let boxW = 250;
+  let boxX = screenWidth - 50 - boxW;
+
+  instructionsDiv = createElement('div').id('instructions-div');
+  instructionsDiv.position(boxX, 30);
+
+  let instructions = 'instructions:<br><br>search for a stock ticker<br>press \'-\' to remove the last stock<br>press \'space\' to restart<br>press \'i\' to toggle instructions';
+  let instructionsElement = createElement('p').id('instructions');
+  instructionsElement.parent(instructionsDiv);
+  instructionsElement.html(instructions);
 }

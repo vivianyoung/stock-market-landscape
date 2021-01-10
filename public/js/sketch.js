@@ -26,6 +26,8 @@ let searchButton;
 let menuDiv;
 let searchDiv;
 
+let instructionsDiv;
+
 async function setup() {
   // initializing the screen's width and height
   screenWidth = innerWidth;
@@ -59,15 +61,14 @@ async function setup() {
       }
     });
 
-  // initialize message box
   deleteAllMessages();
-
+  // create new message box
   messageElement = createElement('p').class('message');
   messageElement.position(screenWidth/2, screenHeight/2);
   messageElement.addClass('hidden');
 
-  // display top left stocks menu
   displayStocksMenu();
+  displayInstructions();
 
   // display stock shapes
   for (let stockName in data){
@@ -95,7 +96,6 @@ async function setup() {
 }
 
 function keyPressed() {
-
   switch (keyCode) {
     // clear data and restart when user presses the spacebar
     case 32:
@@ -111,6 +111,10 @@ function keyPressed() {
         setup();
       }
       break;
+    // toggle instructions box on 'i' key
+    case 73:
+      console.log('toggle');
+      instructionsDiv.toggleClass('hidden');
+      break;
   }
-
 }
