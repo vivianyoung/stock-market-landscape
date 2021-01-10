@@ -68,6 +68,8 @@ async function setup() {
   messageElement.addClass('hidden');
 
   displayStocksMenu();
+
+  if (instructionsDiv != null) {instructionsDiv.remove()};
   displayInstructions();
 
   // display stock shapes
