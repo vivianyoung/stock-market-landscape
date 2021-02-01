@@ -1,3 +1,4 @@
+// remove/reset data on reset
 function reset() {
   stocks = [];
   ticker = '';
@@ -19,6 +20,7 @@ function reset() {
   setup();
 }
 
+// display top-right stocks menu
 function displayStocksMenu() {
   deleteAllMenus();
 
@@ -49,6 +51,7 @@ function displayStocksMenu() {
   }
 }
 
+// retrieves data (stocks, colors, etc.)
 async function getData() {
   let newTicker = searchInput.value().toUpperCase();
 
@@ -64,7 +67,6 @@ async function getData() {
   let currStockColorString = parseColor(currStockColor)['string'];
 
   await getColor(currStockColorString, 'monochrome-dark')
-  // await getColor(currStockColorString, 'analogic-complement')
     .then(rgbColor => {
       let stockData = new Data(ticker);
       let stockDataJSON = loadJSON(stockData.url, gotData);
@@ -99,7 +101,6 @@ async function getData() {
 }
 
 function drawSun() {
-  // let fillColor = color(212,235,110);
   let fillColor = sunColor;
 
   noStroke();

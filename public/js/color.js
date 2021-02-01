@@ -1,6 +1,7 @@
 // constants for color API
 const COLOR_API_URL = 'https://www.thecolorapi.com/';
 
+// given a color object, return a dictionary with string and int array values
 function parseColor(color) {
   let data = {};
 

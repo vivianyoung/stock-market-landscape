@@ -1,3 +1,4 @@
+// stock class
 function Stock(data, dataJSON, color, padding) {
   this.padding = padding;
 

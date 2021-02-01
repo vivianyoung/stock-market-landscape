@@ -1,31 +1,34 @@
+// global variables
+
+// canvas properties
 let screenWidth;
 let screenHeight;
-
-let ticker = '';
-
-let data = {};
-let dataJSON = {};
-
 let bgCol;
 let r,g,b;
 
+// data variables
+let data = {};
+let dataJSON = {};
+
+// sun variables
 let sunColor = null;
 let sunX, sunY;
 let sunR = 120;
 
-let errorMsg = 'error';
-let loadingMsg = 'loading ...';
-let messageElement;
-
+// stock variables
+let ticker = '';
 let stocks = [];
 let currStockColor;
 let stockPadding;
 
+// on-screen elements
+let errorMsg = 'error';
+let loadingMsg = 'loading ...';
+let messageElement;
 let searchInput;
 let searchButton;
 let menuDiv;
 let searchDiv;
-
 let instructionsDiv;
 
 async function setup() {
@@ -37,6 +40,8 @@ async function setup() {
 
   // if there is no data
   if (Object.keys(data).length == 0) {
+
+    // initiate random values for background
     r = int(random(150,255));
     g = int(random(0,150));
     b = int(random(80,255));
@@ -44,8 +49,10 @@ async function setup() {
     bgCol = color(r,g,b);
     currStockColor = bgCol;
 
+    // init stock padding var
     stockPadding = 0.7;
   } else {
+    // increase stock padding for sequential stocks
     stockPadding *= 1.25;
     stockPadding = constrain(stockPadding, 0, 1.0);
   }
@@ -61,7 +68,8 @@ async function setup() {
       }
     });
 
-  deleteAllMessages();
+  deleteAllMessages(); // remove on-screen messages
+
   // create new message box
   messageElement = createElement('p').class('message');
   messageElement.position(screenWidth/2, screenHeight/2);
@@ -87,7 +95,7 @@ async function setup() {
     drawSun();
   }
 
-  // setNoise(r,g,b, screenWidth, screenHeight);
+  // setNoise(r,g,b, screenWidth, screenHeight); // adds noise/grain to background
 
   // when the user searches for a new stock
   searchButton.mousePressed(getData)
