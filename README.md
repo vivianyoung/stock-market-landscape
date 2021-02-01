@@ -3,26 +3,16 @@
 An interactive landscape generator app using the stock market.
 
 #### Technologies:
-+ javascript
-    - node.js
++ Javascript
+    - Node.js
     - p5.js
 + APIs
-    - the color api
-    - alpha vantage api
+    - The Color API
+    - Alpha Vantage API
 + HTML and CSS
-+ heroku
-
 
 #### Screenshots:
-<ul style="list-style:none; float:left">
-    <li>
-        <img src="http://www.vivianmyoung.com/resources/images/creative_code/landscape/landscape_1.webp">
-    </li>
-    <li>
-        <img src="http://www.vivianmyoung.com/resources/images/creative_code/landscape/landscape_2.webp">
-    </li>
-    <li>
-        <img src="http://www.vivianmyoung.com/resources/images/creative_code/landscape/landscape_3.webp">
-    </li>
-</ul>
+<img src="http://www.vivianmyoung.com/resources/images/creative_code/landscape/landscape_1.webp">
+<img src="http://www.vivianmyoung.com/resources/images/creative_code/landscape/landscape_2.webp">
+<img src="http://www.vivianmyoung.com/resources/images/creative_code/landscape/landscape_3.webp">
 
