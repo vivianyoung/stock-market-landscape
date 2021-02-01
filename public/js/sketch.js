@@ -80,19 +80,19 @@ async function setup() {
   if (instructionsDiv != null) {instructionsDiv.remove()};
   displayInstructions();
 
+    // set sun variables
+    sunX = screenWidth * 0.8;
+    sunY = screenHeight * 0.2;
+  
+    // draw sun if there are stock shapes
+    if (Object.keys(data).length > 0) {
+      drawSun();
+    }
+
   // display stock shapes
   for (let stockName in data){
     let stockObj = data[stockName];
     stockObj.display();
-  }
-
-  // set sun variables
-  sunX = screenWidth * 0.8;
-  sunY = screenHeight * 0.2;
-
-  // draw sun if there are stock shapes
-  if (Object.keys(data).length > 0) {
-    drawSun();
   }
 
   // setNoise(r,g,b, screenWidth, screenHeight); // adds noise/grain to background
